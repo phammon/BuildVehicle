@@ -1,15 +1,19 @@
 class Vehicle {
-  constructor(wheels, doors, transmission, fuel, color, hasAirbags, make, hasSunroof) {
+  constructor(type, wheels, doors, transmission, fuel, color) {
+    this.type = type;
     this.wheels = wheels;
     this.doors = doors;
     this.transmission = transmission;
     this.fuel = fuel;
     this.color = color;
   }
+
+  showInfo() { return `You successfully built a ${this.type}`}
 }
 
 class Sedan extends Vehicle {
-  constructor(model, hasSunroof, topspeed) {
+  constructor(type, wheels, doors, transmission, fuel, color, model, hasSunroof, topspeed) {
+    super(type, wheels, doors, transmission, fuel, color);
     this.model = model;
     this.hasSunroof = hasSunroof;
     this.topspeed = topspeed;
@@ -17,16 +21,16 @@ class Sedan extends Vehicle {
 }
 
 class SUV extends Vehicle {
-  constructor(model, hasFourWheelDrive) {
-    super();
+  constructor(type, wheels, doors, transmission, fuel, color, model, hasFourWheelDrive) {
+    super(type, wheels, doors, transmission, fuel, color);
     this.model = model;
     this.hasFourWheelDrive = hasFourWheelDrive;
   }
 }
 
 class Truck extends Vehicle {
-  constructor(model, hasFourWheelDrive, bedLength){
-    super();
+  constructor(type, wheels, doors, transmission, fuel, color, model, hasFourWheelDrive, bedLength){
+    super(type, wheels, doors, transmission, fuel, color);
     this.model = model;
     this.hasFourWheelDrive = hasFourWheelDrive;
     this.bedLength = bedLength;
@@ -34,7 +38,9 @@ class Truck extends Vehicle {
 }
 
 class Motorcyle extends Vehicle {
-    constructor(model, topSpeed) {
+    constructor(type, doors, transmission, fuel, color, model, topSpeed) {
+      super(type, doors, transmission, fuel, color);
+      this.wheels = 2;
       this.model = model;
       this.topSpeed = topSpeed;
     }
@@ -42,20 +48,61 @@ class Motorcyle extends Vehicle {
 
 $("#create-vehicle-button").click(function() {
   let arr = $("#vehicle-creator-form").serializeArray();
-  let truck = createTruckObject(arr);
+  console.log(arr[0].value)
+  let vehicle = createObj(arr[0].value, arr)
   var div = document.getElementById('details-container');
-  div.innerHTML += "You built a truck!";
-  div.innerHTML += "<br/>"
-  div.innerHTML += `Wheels: ${truck.wheels}<br/>`;
-  div.innerHTML += `Doors: ${truck.doors}<br/>`;
-  div.innerHTML += `Transmission: ${truck.transmission}<br/>`;
-  div.innerHTML += `Fuel: ${truck.fuel}`;
-
-
+  div.innerHTML += vehicle.showInfo();
+  return false;
 })
+
+function createObj(type, data) {
+  if (type === "Truck")
+    return createTruckObject(data);
+  if (type === "SUV")
+    return createSuvObject(data);
+  if (type === "Sedan")
+    return createSedanObject(data);
+  if (type === "Motorcycle")
+    return createMotorcyleObj(data);
+}
 
 function createTruckObject(formDataArr) {
   let truck = new Truck();
+  console.log(formDataArr);
+  truck.type = formDataArr[0].value;
+  truck.wheels = formDataArr[1].value;
+  truck.doors = formDataArr[2].value;
+  truck.transmission = formDataArr[3].value;
+  truck.fuel = formDataArr[4].value;
+  truck.color = formDataArr[5].value;
+  return truck;
+}
+
+function createSuvObject(formDataArr) {
+  let truck = new Truck();
+  console.log(formDataArr);
+  truck.wheels = formDataArr[0].value;
+  truck.doors = formDataArr[1].value;
+  truck.transmission = formDataArr[2].value;
+  truck.fuel = formDataArr[3].value;
+  truck.color = formDataArr[4].value;
+  return truck;
+}
+
+function createSedanObject(formDataArr) {
+  let truck = new Truck();
+  console.log(formDataArr);
+  truck.wheels = formDataArr[0].value;
+  truck.doors = formDataArr[1].value;
+  truck.transmission = formDataArr[2].value;
+  truck.fuel = formDataArr[3].value;
+  truck.color = formDataArr[4].value;
+  return truck;
+}
+
+function createSedanMotorCycle(formDataArr) {
+  let truck = new Truck();
+  console.log(formDataArr);
   truck.wheels = formDataArr[0].value;
   truck.doors = formDataArr[1].value;
   truck.transmission = formDataArr[2].value;

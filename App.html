@@ -3,22 +3,21 @@
 <body>
 
 <div class="container">
-  <h1>Vehicle Builder</h1>
-  <p>
-    What kind of Car would you like to make?
-    </p>
-    <select>
-      <option value=""></option>
-      <option value="Truck">Truck</option>
-      <option value="SUV">SUV</option>
-      <option value="Motorcycle">Motorcycle</option>
-      <option value="Sedan">Sedan</option>
-    </select>
-    <button id="create-vehicle-button" class="btn btn-primary small">Create</button>
-</div>
+  <button id="create-vehicle-button" class="btn btn-primary small">Create</button>
 
-<div class="container">
   <form id="vehicle-creator-form">
+    <h1>Vehicle Builder</h1>
+    <p>
+      What kind of Car would you like to make?
+      </p>
+      <select name="type">
+        <option value=""></option>
+        <option value="Truck">Truck</option>
+        <option value="SUV">SUV</option>
+        <option value="Motorcycle">Motorcycle</option>
+        <option value="Sedan">Sedan</option>
+      </select>
+      <br/>
   <label for="wheels">Wheels:</label><br>
   <input type="number" id="wheels" name="wheels"><br>
   <label for="doors">Doors:</label><br>
@@ -37,6 +36,12 @@
     <label for="hasFourWheelDrive">Has 4 Wheel Drive:</label><br>
     <input type="text" id="has-four-wheel-drive" name="hasFourWheelDrive"><br />
   </div>
+  <div id="suv-options">
+
+    </div>
+    <div id="sedan-options">
+
+      </div>
   <!-- <label for="hasAirBags">Has Air Bags:</label><br>
   <input type="text" id="has-air-bags" name="hasAirBags"><br />
   <label for="make">make:</label><br>
