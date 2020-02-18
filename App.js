@@ -11,6 +11,7 @@ class Vehicle {
   showInfo() { return `You successfully built a ${this.type}`}
 }
 
+//inheritance
 class Sedan extends Vehicle {
   constructor(type, wheels, doors, transmission, fuel, color, model, hasSunroof, topspeed) {
     super(type, wheels, doors, transmission, fuel, color);
@@ -28,6 +29,7 @@ class SUV extends Vehicle {
   }
 }
 
+//polymorphism
 class Truck extends Vehicle {
   constructor(type, wheels, doors, transmission, fuel, color, model, hasFourWheelDrive, bedLength){
     super(type, wheels, doors, transmission, fuel, color);
@@ -35,24 +37,28 @@ class Truck extends Vehicle {
     this.hasFourWheelDrive = hasFourWheelDrive;
     this.bedLength = bedLength;
   }
+  showInfo() { return `You successfully built a ${this.type}. Make is ${this.make}, Model is ${this.model}, Bed Length is ${this.bedLength}`}
+
 }
 
+//encapsulation
 class Motorcyle extends Vehicle {
     constructor(type, doors, transmission, fuel, color, model, topSpeed) {
       super(type, doors, transmission, fuel, color);
-      this.wheels = 2;
+      let wheels = 2;
       this.model = model;
       this.topSpeed = topSpeed;
     }
 }
 
-$("#create-vehicle-button").click(function() {
+$("#vehicle-creator-form").submit(function(e) {
+  e.preventDefault();
   let arr = $("#vehicle-creator-form").serializeArray();
   console.log(arr[0].value)
   let vehicle = createObj(arr[0].value, arr)
   var div = document.getElementById('details-container');
   div.innerHTML += vehicle.showInfo();
-  return false;
+
 })
 
 function createObj(type, data) {
