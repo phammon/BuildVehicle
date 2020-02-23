@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/App.css"></link>
+</head>
+<body>
+  <div class="container">
+    <form id="vehicle-creator-form">
+      <h1>Vehicle Builder</h1>
+      <p>
+        What kind of Car would you like to make?
+      </p>
+      <select id="vehicle-select" name="type">
+        <option value=""></option>
+        <option value="Truck">Truck</option>
+        <option value="SUV">SUV</option>
+        <option value="Motorcycle">Motorcycle</option>
+        <option value="Sedan">Sedan</option>
+      </select>
+      <button id="create-vehicle-button" class="btn btn-sm btn-primary">Create</button>
+      <br/>
+      <br/>
+      <div class="flex-container-div">
+        <div>
+          <label for="vin">Vin:</label><br>
+          <input type="text" id="vin" name="vin"><br>
+          <label for="wheels">Wheels:</label><br>
+          <input type="number" id="wheels" name="wheels"><br>
+          <label for="doors">Doors:</label><br>
+          <input type="number" id="doors" name="doors"><br />
+          <label for="transmission">Transmission:</label><br>
+          <input type="text" id="transmission" name="transmission"><br />
+        </div>
+        <div>
+          <label for="color">Color:</label><br>
+          <input type="text" id="color" name="color"><br />
+          <label for="make">Make:</label><br>
+          <input type="text" id="make" name="make"><br />
+          <label for="model">Model:</label><br>
+          <input type="text" id="model" name="model"><br />
+          <label for="bedlength">Bed Length:</label><br>
+          <input type="text" id="bedlength" name="bedlength"><br />
+        </div>
+        <div>
+          <br>
+          <div class="flex-container-div">
+            <input style="margin-right: 5px;" type="checkbox" id="has-four-wheel-drive" name="hasFourWheelDrive"><br />
+            <label for="hasFourWheelDrive">Has Four Wheel Drive</label><br>
+          </div>
+          <div class="flex-container-div">
+            <input style="margin-right: 5px;" type="checkbox" id="has-sun-roof" name="hasSunroof"><br />
+            <label for="hasSunroof">Has Sun Roof</label><br>
+          </div>
+        </div>
+      </div>
+      </form>
+  </div>
+
+  <div class="container bg-dark">
+    <h3>Results</h3>
+    <div id="details-container">
+    </div>
+  </div>
+
+</body>
+
+</html>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="module" src="/App.js"></script>

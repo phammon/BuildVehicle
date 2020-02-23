@@ -1,0 +1,8 @@
+.flex-container-div {
+  display: flex;
+  flex-direction: row;
+}
+
+div {
+  margin-right: 20px;
+}
