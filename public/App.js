@@ -3,6 +3,7 @@ import { Vehicle, Truck, Sedan, SUV, Motorcycle } from "./Vehicle.js";
 $("#vehicle-creator-form").submit(function(e) {
   e.preventDefault();
   let arr = $("#vehicle-creator-form").serializeArray();
+  console.log(arr[0].value)
   let vehicle = createObj(arr[0].value, arr)
   var div = document.getElementById('details-container');
   div.innerHTML = null;
@@ -32,7 +33,7 @@ function createTruckObj(formDataArr) {
   truck.make = formDataArr[6].value
   truck.model = formDataArr[7].value;
   truck.bedLength = formDataArr[8].value;
-  truck.hasFourWheelDrive = formDataArr[9].value;
+  truck.hasFourWheelDrive = formDataArr[9] === undefined ? false : true;
   return truck;
 }
 
@@ -47,8 +48,8 @@ function createSuvObj(formDataArr) {
   suv.color = formDataArr[5].value
   suv.make = formDataArr[6].value
   suv.model = formDataArr[7].value;
-  suv.hasFourWheelDrive = formDataArr[9].value;
-  suv.hasSunroof = formDataArr[10].value;
+  suv.hasFourWheelDrive = formDataArr[9] === undefined ? false : true;
+  suv.hasSunroof = formDataArr[10] === undefined ? false : true;
   return suv;
 }
 
@@ -62,7 +63,7 @@ function createSedanObj(formDataArr) {
   sedan.color = formDataArr[5].value
   sedan.make = formDataArr[6].value
   sedan.model = formDataArr[7].value;
-  sedan.hasSunroof = formDataArr[10].value;
+  sedan.hasSunroof = formDataArr[10] === undefined ? false : true;
   return sedan;
 }
 

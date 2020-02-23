@@ -29,7 +29,7 @@ export class SUV extends Vehicle {
   }
 
   showInfo() {
-    return super.showInfo() + ` Make is ${this.make}, Model is ${this.model}, Four wheel drive: ${this.hasFourWheelDrive === "on" ? true : false}, Has sun roof: ${this.hasSunroof === "on" ? true : false}.`
+    return super.showInfo() + ` Make is ${this.make}, Model is ${this.model}, Four wheel drive: ${this.hasFourWheelDrive}, Has sun roof: ${this.hasSunroof}.`
   }
 }
 
@@ -43,7 +43,7 @@ export class Truck extends Vehicle {
   }
 
   showInfo() {
-    return super.showInfo() + ` Make is ${this.make}, Model is ${this.model}, Bed Length is ${this.bedLength}, Four wheel drive: ${this.hasFourWheelDrive === "on" ? true : false}`;
+    return super.showInfo() + ` Make is ${this.make}, Model is ${this.model}, Bed Length is ${this.bedLength}, Four wheel drive: ${this.hasFourWheelDrive}`;
   }
 }
 
